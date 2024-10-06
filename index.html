@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Peddy</title>
+    <!-- DaisyUI & Tailwind CSS-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- lato font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="lato-font">
+    <header>
+      <!-- navigation section -->
+      <nav class="w-5/6 mx-auto flex items-center justify-between py-5">
+        <div class="flex items-center gap-2">
+          <img class="w-5 h-5" src="images/logo.webp" alt="" />
+          <h3 class="font-bold text-2xl"><a href="">Peddy</a></h3>
+        </div>
+
+        <div>
+          <ul class="flex gap-4">
+            <li class="text-gray-500"><a href="">Home</a></li>
+            <li class="text-gray-500"><a href="">Shop</a></li>
+            <li class="text-gray-500"><a href="">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="border rounded-full p-3">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+            />
+          </svg>
+        </div>
+      </nav>
+
+      <!-- Banner section -->
+      <section>
+        <div class="w-4/6 mx-auto text-center">
+          <p class="text-xl text-gray-500 font-semibold">
+            Bringing Families Together ❤️‍🔥
+          </p>
+          <h1 class="text-6xl font-bold my-5">
+            Your Path to Adoptio <br />
+            Starts Here
+          </h1>
+          <p class="mx-16">
+            Pet adoption is the process of taking in an animal, typically from a
+            shelter, rescue organization, <br />
+            or foster care, and providing it with a permanent home.
+          </p>
+          <button class="btn text-white bg-[#0E7A81] border-none my-5">
+            View More
+          </button>
+          <img src="images/pet.webp" alt="" />
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <section>
+        <div class="w-2/5 mx-auto">
+          <h1 class="text-4xl font-bold text-center my-5">
+            Adopt Your Best Friend
+          </h1>
+          <p class="text-gray-500 text-center mb-8">
+            By adopting, you not only provide a loving home to a pet in need but
+            also gain a loyal friend who will offer unconditional love and
+            companionship.
+          </p>
+        </div>
+
+        <div></div>
+      </section>
+    </main>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
