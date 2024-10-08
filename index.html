@@ -34,13 +34,13 @@
   <body class="lato-font">
     <header>
       <!-- navigation section -->
-      <nav class="w-5/6 mx-auto flex items-center justify-between py-5">
+      <nav class="w-11/12 mx-auto flex items-center justify-between py-5">
         <div class="flex items-center gap-2">
           <img class="w-5 h-5" src="images/logo.webp" alt="" />
           <h3 class="font-bold text-2xl"><a href="">Peddy</a></h3>
         </div>
 
-        <div>
+        <div class="hidden md:block">
           <ul class="flex gap-4">
             <li class="text-gray-500"><a href="">Home</a></li>
             <li class="text-gray-500"><a href="">Shop</a></li>
@@ -48,21 +48,29 @@
           </ul>
         </div>
 
-        <div class="border rounded-full p-3">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="size-6"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
-            />
-          </svg>
+        <div class="flex items-center gap-2">
+          <div class="border rounded-full p-3">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+              />
+            </svg>
+          </div>
+
+          <div class="">
+            <button class="md:hidden border rounded-full py-3 px-4">
+              <ion-icon name="reorder-four-outline"></ion-icon>
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -82,7 +90,7 @@
             or foster care, and providing it with a permanent home.
           </p>
           <button class="btn text-white bg-[#0E7A81] border-none my-5">
-            View More
+            <a href="#main-section">View More</a>
           </button>
           <img src="images/pet.webp" alt="" />
         </div>
@@ -90,7 +98,7 @@
     </header>
 
     <main>
-      <section>
+      <section id="main-section">
         <div class="w-2/5 mx-auto">
           <h1 class="text-4xl font-bold text-center my-5">
             Adopt Your Best Friend
@@ -104,19 +112,39 @@
 
         <nav id="categories" class="py-4 flex gap-4 justify-center"></nav>
 
-        <div class="w-5/6 mx-auto flex justify-between items-center mb-4">
+        <div class="w-11/12 mx-auto flex justify-between items-center mb-4">
           <h3 class="font-bold text-xl">Best Deal For You</h3>
           <button class="btn text-lg bg-[#0E7A81] text-white px-6">
             Sort By Price
           </button>
         </div>
 
-        <div class="flex">
-          <div id="pets" class="w-5/6 mx-auto grid grid-cols-3 gap-4"></div>
-          <div></div>
+        <div class="flex gap-4 w-11/12 mx-auto justify-center mb-5">
+          <div id="pets" class="grid grid-cols-3 gap-4 w-full"></div>
+          <div id="" class="w-1/4 p-5 border rounded-xl"></div>
         </div>
       </section>
     </main>
+
+    <!-- Open the modal using ID.showModal() method -->
+    <button
+      id="showModalData"
+      class="btn hidden"
+      onclick="cuntomModal.showModal()"
+    >
+      open modal
+    </button>
+    <dialog id="cuntomModal" class="modal modal-bottom sm:modal-middle">
+      <div class="modal-box">
+        <div id="modal-content"></div>
+        <div class="">
+          <form method="dialog">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn w-full bg-[#0E7A811A]">Cancel</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
 
     <script src="js/script.js"></script>
   </body>

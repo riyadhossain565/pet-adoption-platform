@@ -1,3 +1,14 @@
 .lato-font {
   font-family: "Lato", sans-serif;
 }
+
+.active {
+  background-color: #0e7a811a;
+  border: 1px solid #0e7a81;
+  border-radius: 120px;
+  color: rgb(0, 0, 0);
+}
+
+html {
+  scroll-behavior: smooth;
+}
