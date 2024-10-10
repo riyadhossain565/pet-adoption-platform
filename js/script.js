@@ -8,7 +8,7 @@ const loadCategories = () => {
     .catch((error) => console.log(error));
 };
 
-// create loadPets
+// fetch loadPets
 const loadPets = () => {
   //fetch the data
   fetch("https://openapi.programming-hero.com/api/peddy/pets")
@@ -23,7 +23,7 @@ const displayPetsImg = (imageUrl) => {
   const imgContainer = document.getElementById("pets-img");
 
   const imgBox = document.createElement("div");
-  imgBox.classList = "p-1";
+  imgBox.classList = "lg:p-1 border rounded-lg";
   imgBox.innerHTML = `
      <div>
       <img src="${imageUrl}" alt="pet image" class="w-full h-full object-cover rounded-md" />
@@ -40,6 +40,7 @@ const removeActiveClass = () => {
   }
 };
 
+// fetch categories for buttons
 const loadCategoriesPets = (id) => {
   // console.log(id);
   fetch(`https://openapi.programming-hero.com/api/peddy/category/${id}`)
@@ -54,6 +55,41 @@ const loadCategoriesPets = (id) => {
       displayPets(data.data);
     })
     .catch((error) => console.log(error));
+};
+
+const loadAllPets = (id) => {
+  document.getElementById("spinner").style.display = "none";
+  loadCategoriesPets(id);
+};
+
+// show spinner
+
+const handleCategories = (categoryId) => {
+  document.getElementById("spinner").style.display = "block";
+  document.getElementById("pets").innerHTML = "";
+
+  setTimeout(function () {
+    loadAllPets(categoryId);
+  }, 2000);
+};
+
+//Create DisplayCategories
+const displayCategories = (categories) => {
+  const categoryContainer = document.getElementById("categories");
+
+  categories.forEach((item) => {
+    //create a button
+    const buttonContainer = document.createElement("div");
+    buttonContainer.classList = "grid justify-center";
+    buttonContainer.innerHTML = `
+      <button id="btn-${item.category}"  onclick="handleCategories('${item.category}')" class="btn btn-lg btn-outline text-lg font-bold px-10 hover:bg-[#0E7A811A] hover:border-[#0e7a81] hover:text-black transition-all category-btn">
+        <img class="w-8" src="${item.category_icon}" />
+        ${item.category}
+      </button>
+    `;
+    // add button to category container
+    categoryContainer.append(buttonContainer);
+  });
 };
 
 // async modal details
@@ -129,25 +165,7 @@ const displayDetails = (pet) => {
   document.getElementById("cuntomModal").showModal();
 };
 
-//Create DisplayCategories
-const displayCategories = (categories) => {
-  const categoryContainer = document.getElementById("categories");
-
-  categories.forEach((item) => {
-    //create a button
-    const buttonContainer = document.createElement("div");
-    buttonContainer.innerHTML = `
-      <button id="btn-${item.category}"  onclick="loadCategoriesPets('${item.category}')" class="btn btn-lg btn-outline text-lg font-bold px-10 hover:bg-[#0E7A811A] hover:border-[#0e7a81] hover:text-black transition-all category-btn">
-        <img class="w-8" src="${item.category_icon}" />
-        ${item.category}
-      </button>
-    `;
-    // add button to category container
-    categoryContainer.append(buttonContainer);
-  });
-};
-
-// create DisplayPets
+// create DisplayPets card
 const displayPets = (pets) => {
   const petsContainer = document.getElementById("pets");
   petsContainer.innerHTML = "";
@@ -230,7 +248,7 @@ const displayPets = (pets) => {
           </svg>
 
         </button>
-        <button onclick="displayAdopt()" class="px-5 py-2 border rounded-md text-lg font-bold text-[#0E7A81] hover:bg-[#0E7A81] 
+        <button id="btn-disable" onclick="displayAdopt()" class="px-5 py-2 border rounded-md text-lg font-bold text-[#0E7A81] hover:bg-[#0E7A81] 
         hover:text-white">Adopt</button>
         <button onclick="loadDetails(${
           pet.petId
@@ -259,7 +277,7 @@ const displayAdopt = () => {
     countDown.innerHTML = countdownTime;
 
     if (countdownTime <= 0) {
-      closeModal(); // Close modal when countdown reaches 0
+      closeModal();
     }
   }, 1000);
 
@@ -269,6 +287,21 @@ const displayAdopt = () => {
 const closeModal = () => {
   clearInterval(countdownInterval);
   document.getElementById("adoptModal").close();
+};
+
+// sort by price
+
+const displaySortByPrice = () => {
+  fetch("https://openapi.programming-hero.com/api/peddy/pets")
+    .then((res) => res.json())
+    .then((data) => {
+      const petsArray = data.pets;
+      // console.log(pets);
+
+      // Sort array
+      const sortByPrice = petsArray.sort((a, b) => b.price - a.price);
+      displayPets(sortByPrice);
+    });
 };
 
 loadCategories();
