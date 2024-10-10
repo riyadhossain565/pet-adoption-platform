@@ -82,7 +82,7 @@ const displayCategories = (categories) => {
     const buttonContainer = document.createElement("div");
     buttonContainer.classList = "grid justify-center";
     buttonContainer.innerHTML = `
-      <button id="btn-${item.category}"  onclick="handleCategories('${item.category}')" class="btn btn-lg btn-outline text-lg font-bold px-10 hover:bg-[#0E7A811A] hover:border-[#0e7a81] hover:text-black transition-all category-btn">
+      <button id="btn-${item.category}"  onclick="handleCategories('${item.category}')" class="btn btn-lg h-[70px] btn-outline text-lg font-bold px-10 hover:bg-[#0E7A811A] hover:border-[#0e7a81] hover:text-black transition-all category-btn">
         <img class="w-8" src="${item.category_icon}" />
         ${item.category}
       </button>
