@@ -20,4 +20,4 @@ Peddy is a web-based platform designed to streamline the pet adoption process. I
 
 ## Live Link
 
-You can view the live version of the project
+You can view the live version of the project (https://peddy-petadoption.netlify.app/)

@@ -248,7 +248,7 @@ const displayPets = (pets) => {
           </svg>
 
         </button>
-        <button id="btn-disable" onclick="displayAdopt()" class="px-5 py-2 border rounded-md text-lg font-bold text-[#0E7A81] hover:bg-[#0E7A81] 
+        <button id="btn-adopted" onclick="displayAdopt(this)" class="px-5 py-2 border rounded-md text-lg font-bold text-[#0E7A81] hover:bg-[#0E7A81] 
         hover:text-white">Adopt</button>
         <button onclick="loadDetails(${
           pet.petId
@@ -264,7 +264,9 @@ const displayPets = (pets) => {
 //display modal
 let countdownInterval;
 
-const displayAdopt = () => {
+const displayAdopt = (button) => {
+  button.innerText = "Adopted";
+
   const countDownModal = document.getElementById("adoptModal");
   const countDown = document.getElementById("counter");
 
