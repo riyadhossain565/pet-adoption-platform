@@ -67,9 +67,19 @@
           </div>
 
           <div class="">
-            <button class="md:hidden border rounded-full py-3 px-4">
-              <ion-icon name="reorder-four-outline"></ion-icon>
-            </button>
+            <div class="dropdown dropdown-end">
+              <button class="md:hidden border rounded-full py-3 px-4">
+                <ion-icon name="reorder-four-outline"></ion-icon>
+              </button>
+              <ul
+                tabindex="0"
+                class="menu dropdown-content bg-base-100 rounded-box z-[1] mt-4 w-52 p-2 shadow"
+              >
+                <li><a>Home</a></li>
+                <li><a>Shop</a></li>
+                <li><a>Contact</a></li>
+              </ul>
+            </div>
           </div>
         </div>
       </nav>
